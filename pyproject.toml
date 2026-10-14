@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hcp-interaction-module"
+version = "0.1.0"
+description = "AI-first CRM HCP interaction assistant built with LangGraph and FastAPI"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "fastapi>=0.115,<1.0",
+    "langchain-openai>=0.3,<2.0",
+    "langgraph>=0.3,<2.0",
+    "pydantic-settings>=2.7,<3.0",
+    "uvicorn>=0.34,<1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "httpx>=0.28,<1.0",
+    "pytest>=8.3,<9.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
